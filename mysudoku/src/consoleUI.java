@@ -8,8 +8,9 @@ import java.util.Scanner;
 public class consoleUI {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        int menuChoice = 0;
-        mySudoku sudoku;
+        int menuChoice;
+        mySudoku sudoku = null;
+        fileIO fileIO = new fileIO();   // Naming could be better
 
         System.out.println("mySudoku");
         while (true) {
@@ -28,15 +29,26 @@ public class consoleUI {
                     break;
                 case 2:
                     // Print the sudoku if there is one created
-                    sudoku.print();
+                    System.out.println(sudoku.print());
                     break;
                 case 3:
                     // Save the sudoku in a file if there is one created
-                    sudoku.saveToFile();
+                    if (sudoku != null) {
+                        String filename;
+                        System.out.println("Filename:");
+                        filename = input.next();
+                        fileIO.save(filename);
+                    }
+                    else {
+
+                    }
                     break;
                 case 4:
                     // Load the sudoku from a file
-                    sudoku = loadSudokuFromFile();
+                    String filename;
+                    System.out.println("Filename:");
+                    filename = input.next();
+                    sudoku = fileIO.load(filename);
                     break;
                 case 5:
                     // Quit
