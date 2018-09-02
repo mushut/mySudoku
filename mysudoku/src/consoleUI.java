@@ -3,6 +3,7 @@
  */
 
 import java.util.Scanner;
+import java.util.ArrayList;
 
 // Console UI for using the application
 public class consoleUI {
