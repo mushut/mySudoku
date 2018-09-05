@@ -10,17 +10,21 @@ public class mySudoku {
         this.data = new sudokuData();
         this.data.initializeData();
         this.data.generateSudoku();
+
+        this.id = "No id";
     }
 
-    public mySudoku(sudokuData newData) {
+    public mySudoku(String newId, sudokuData newData) {
+        this.id = newId;
         this.data = newData;
     }
 
     public String print() {
-        String result = this.data.toString();
+        String result = this.id + ":\n" + this.data.toString();
 
         return result;
     }
 
     private sudokuData data;
+    private String id;
 }

@@ -11,7 +11,7 @@ public class consoleUI {
         Scanner input = new Scanner(System.in);
         int menuChoice;
         mySudoku sudoku = null;
-        fileIO fileIO = new fileIO();   // Naming could be better
+        fileIO fileIO = new fileIO();
 
         System.out.println("mySudoku");
         while (true) {
@@ -38,7 +38,7 @@ public class consoleUI {
                         String filename;
                         System.out.println("Filename:");
                         filename = input.next();
-                        fileIO.save(filename);
+                        fileIO.save(filename, sudoku);
                     }
                     else {
 
@@ -50,6 +50,12 @@ public class consoleUI {
                     System.out.println("Filename:");
                     filename = input.next();
                     sudoku = fileIO.load(filename);
+                    if (sudoku != null) {
+                        System.out.println("Load succesful");
+                    }
+                    else {
+                        System.out.println("Load failed");
+                    }
                     break;
                 case 5:
                     // Quit
@@ -62,5 +68,7 @@ public class consoleUI {
                 break;
             }
         }
+
+        input.close();
     }
 }
