@@ -39,9 +39,10 @@ public class consoleUI {
                         System.out.println("Filename:");
                         filename = input.next();
                         fileIO.save(filename, sudoku);
+                        System.out.println("Save succesful");
                     }
                     else {
-
+                        System.out.println("Save failed");
                     }
                     break;
                 case 4:

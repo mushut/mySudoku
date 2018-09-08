@@ -64,5 +64,32 @@ public class sudokuData {
         return result;
     }
 
+    public String toCSV() {
+        String result = "";
+        int rowIndex = 0;
+        int elementIndex = 0;
+
+        for (ArrayList<Integer> row : this.data) {
+            for (int element : row) {
+                if (elementIndex < 8) {
+                    result += element + ",";
+                    elementIndex++;
+                }
+                else {
+                    result += element;
+                    elementIndex = 0;
+                }
+            }
+
+            if (rowIndex < 8) {
+                result += "\n";
+            }
+
+            rowIndex++;
+        }
+
+        return result;
+    }
+
     private ArrayList<ArrayList<Integer>> data;
 }

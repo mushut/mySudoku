@@ -4,6 +4,8 @@
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -13,6 +15,21 @@ public class fileIO {
 
     public void save(String saveFile, mySudoku savedSudoku) {
         // Saving
+        File outputFile;
+
+        if (saveFile != null) {
+            outputFile = new File(saveFile);
+            try {
+                FileWriter writerCsv = new FileWriter(outputFile);
+
+                writerCsv.append(createCSV(savedSudoku));
+
+                writerCsv.close();
+            }
+            catch (IOException e) {
+                System.out.println(e);
+            }
+        }
     }
 
     public mySudoku load(String loadFile) {
@@ -51,5 +68,9 @@ public class fileIO {
         }
 
         return null;
+    }
+
+    private String createCSV(mySudoku sudoku) {
+        return sudoku.dataToCSV();
     }
 }

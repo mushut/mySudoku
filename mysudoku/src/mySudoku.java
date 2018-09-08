@@ -25,6 +25,15 @@ public class mySudoku {
         return result;
     }
 
+    public String dataToCSV() {
+        String result;
+
+        result = this.id + "\n";
+        result += data.toCSV();
+
+        return result;
+    }
+
     private sudokuData data;
     private String id;
 }
