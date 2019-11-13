@@ -30,7 +30,9 @@ public class consoleUI {
                     break;
                 case 2:
                     // Print the sudoku if there is one created
-                    System.out.println(sudoku.print());
+                    if (sudoku != null) {
+                        System.out.println(sudoku.print());
+                    }
                     break;
                 case 3:
                     // Save the sudoku in a file if there is one created
